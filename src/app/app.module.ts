@@ -9,6 +9,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
+import {MatMenuModule} from '@angular/material/menu';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { QueryComponent } from './query/query/query.component';
@@ -26,7 +27,7 @@ import { NetworkInterceptor } from './shared/network/network.interceptor';
     BrowserModule,
     routing,
     BrowserAnimationsModule,
-    MatToolbarModule,MatButtonModule,NgbModule, MatProgressSpinnerModule,MatTableModule,
+    MatToolbarModule,MatButtonModule,NgbModule, MatProgressSpinnerModule,MatTableModule,MatMenuModule,
     HttpClientModule
   ],
   exports:[
