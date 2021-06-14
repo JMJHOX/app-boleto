@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient,HttpErrorResponse} from '@angular/common/http'
+import {HttpClient,HttpErrorResponse, HttpHeaders} from '@angular/common/http'
 import { Observable,throwError} from 'rxjs';
 import {catchError, tap, map} from 'rxjs/operators';
 import {BoletoUser} from '../shared/models/boleto.model';
@@ -9,20 +9,29 @@ const API_URL_PRO: string = 'http://127.0.0.1:8000/api/';
   providedIn: 'root'
 })
 export class BoletosService {
-//initiate the new Loading variable via BehaviorSubject and set it to "true" from the beginning.
+
 
   constructor(private http: HttpClient) {
-   //set the loading$ to true again just before we start the HTTP call
+
 
   }
 
   getBoletos(): Observable<BoletoUser[]> {
-    return this.http.get<BoletoUser[]>(API_URL_PRO+'apiBonoMostrar/').pipe(
-        tap(data =>{data}),
-        catchError(this.handleError)
+    return this.http.get<BoletoUser[]>(API_URL_PRO+'apiBonoMostrar/').pipe(tap(data=>data),catchError(this.handleError)
     );
 }
+deleteBoleto(code:Number):Observable<BoletoUser[]>{
+  return this.http.delete<BoletoUser[]>(API_URL_PRO+'apiBonoBorrar/'+code).pipe(tap(data=>data),catchError(this.handleError));
+}
+updateBoleto(code:Number,request:any):Observable<BoletoUser[]>{
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+  };
 
+  return this.http.put<BoletoUser[]>(API_URL_PRO+'apiBonoCambiar/'+code,request).pipe(tap(data=>data),catchError(this.handleError));
+}
 
 private handleError(err: HttpErrorResponse) {
 

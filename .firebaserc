@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "app-boleto-55e5d": {
+      "hosting": {
+        "app-boleto": [
+          "app-boleto-55e5d"
+        ]
+      }
+    }
+  }
+}

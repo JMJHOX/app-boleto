@@ -70,7 +70,6 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "app-boleto:build"
-
           },
           "configurations": {
             "production": {
@@ -126,6 +125,10 @@
               "devServerTarget": "app-boleto:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
