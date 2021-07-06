@@ -1,1 +1,18 @@
-<p>Inserte su código a consultar</p>
+<div class="container" >
+  <div style="margin-top: 100px; margin-left: 100px; border: 1px solid #98B6B1;background-color: #fff; display: grid; justify-content: center; align-content: center;">
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+      <h3 style="font-size: 24px;margin-bottom: 30px;">Estatus de estudiante</h3>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your username!">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="userName" placeholder="Introducir identificador"  />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Buscar Usuario</button>
+
+    </form>
+
+  </div>
+</div>

@@ -17,11 +17,11 @@ export class BoletosService {
   }
 
   getBoletos(): Observable<BoletoUser[]> {
-    return this.http.get<BoletoUser[]>(API_URL_PRO+'apiBonoMostrar/').pipe(tap(data=>data),catchError(this.handleError)
+    return this.http.get<BoletoUser[]>(API_URL_DEV+'apiBonoMostrar/').pipe(tap(data=>data),catchError(this.handleError)
     );
 }
 deleteBoleto(code:Number):Observable<BoletoUser[]>{
-  return this.http.delete<BoletoUser[]>(API_URL_PRO+'apiBonoBorrar/'+code).pipe(tap(data=>data),catchError(this.handleError));
+  return this.http.delete<BoletoUser[]>(API_URL_DEV+'apiBonoBorrar/'+code).pipe(tap(data=>data),catchError(this.handleError));
 }
 updateBoleto(code:Number,request:any):Observable<BoletoUser[]>{
   const httpOptions = {
@@ -30,7 +30,7 @@ updateBoleto(code:Number,request:any):Observable<BoletoUser[]>{
     })
   };
 
-  return this.http.put<BoletoUser[]>(API_URL_PRO+'apiBonoCambiar/'+code,request).pipe(tap(data=>data),catchError(this.handleError));
+  return this.http.put<BoletoUser[]>(API_URL_DEV+'apiBonoCambiar/'+code,request).pipe(tap(data=>data),catchError(this.handleError));
 }
 
 private handleError(err: HttpErrorResponse) {

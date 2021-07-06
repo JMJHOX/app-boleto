@@ -26,6 +26,16 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
 import { QueryUserComponent } from './query-user/query-user.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { es_ES } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import es from '@angular/common/locales/es';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzMenuModule } from 'ng-zorro-antd/menu'
+registerLocaleData(es);
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +51,7 @@ import { QueryUserComponent } from './query-user/query-user.component';
     BrowserModule,
     routing,
     BrowserAnimationsModule,
-    MatToolbarModule,MatButtonModule,NgbModule, MatProgressSpinnerModule,MatTableModule,MatMenuModule,
+    MatToolbarModule,MatButtonModule,NgbModule, MatProgressSpinnerModule,MatTableModule,MatMenuModule,NzGridModule, NzMenuModule,
     HttpClientModule,
     Ng2SmartTableModule,
     FontAwesomeModule,
@@ -49,7 +59,7 @@ import { QueryUserComponent } from './query-user/query-user.component';
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,NzFormModule,NzInputModule,NzButtonModule,
   ],
   exports:[
     MatToolbarModule,MatButtonModule
@@ -60,6 +70,7 @@ import { QueryUserComponent } from './query-user/query-user.component';
       useClass:NetworkInterceptor,
       multi:true,
     },
+    { provide: NZ_I18N, useValue: es_ES },
   ],
   bootstrap: [AppComponent]
 })
